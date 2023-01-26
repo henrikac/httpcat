@@ -27,7 +27,7 @@ $ httpcat code 404
 Not Found
 ```
 
-#### Open cat image of a http status code on [http.cat](https://http.cat)
+#### Open the http status code on [http.cat](https://http.cat)
 ```
 $ httpcat code 404 --show
 ```
