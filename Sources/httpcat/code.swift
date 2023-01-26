@@ -17,14 +17,35 @@ struct Code: ParsableCommand {
     @Argument(help: "The status code to translate to text.")
     var code: Int
     
-    mutating func run() {
+    @Flag(help: "Shows a cat image illustrating the status code on http.cat")
+    var show = false
+    
+    mutating func run() throws {
         if let statusCode = HTTPStatusCode(rawValue: code) {
-            switch statusCode {
-            case .ok:
-                print("200 OK")
-                break
-            default:
-                print("\(statusCode.rawValue) \(HTTPURLResponse.localizedString(forStatusCode: statusCode.rawValue).capitalized)")
+            if show {
+                let url = "https://http.cat/\(statusCode.rawValue)"
+                let task = Process()
+                
+                #if os(macOS)
+                task.executableURL = URL(fileURLWithPath: "/usr/bin/open")
+                #else
+                task.executableURL = URL(fileURLWithPath: "/usr/bin/xdg-open")
+                #endif
+                task.arguments = [url]
+                
+                do {
+                    try task.run()
+                } catch {
+                    print("Error opening the browser: \(error.localizedDescription)")
+                }
+            } else {
+                switch statusCode {
+                case .ok:
+                    print("200 OK")
+                    break
+                default:
+                    print("\(statusCode.rawValue) \(HTTPURLResponse.localizedString(forStatusCode: statusCode.rawValue).capitalized)")
+                }
             }
         } else {
             print("\(code) is not a valid http status code")

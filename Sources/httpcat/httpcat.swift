@@ -8,7 +8,8 @@ struct HttpCat: ParsableCommand {
         version: "1.0.0",
         subcommands: [Code.self]
     )
-
+    
     mutating func run() {
+        print(HttpCat.helpMessage())
     }
 }
