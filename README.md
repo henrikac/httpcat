@@ -29,5 +29,5 @@ Not Found
 
 #### Open http status code on [http.cat](https://http.cat)
 ```
-$ httpcat code 404 --show
+$ httpcat code 404 --open
 ```
