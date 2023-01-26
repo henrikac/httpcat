@@ -6,7 +6,7 @@ struct HttpCat: ParsableCommand {
     static let configuration = CommandConfiguration(
         commandName: "httpcat",
         abstract: "A tool to translate http status codes to text.",
-        version: "1.0.0",
+        version: "1.0.1",
         subcommands: [Code.self]
     )
     
