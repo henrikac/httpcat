@@ -17,12 +17,12 @@ struct Code: ParsableCommand {
     @Argument(help: "The status code to translate to text.")
     var code: Int
     
-    @Flag(help: "Shows a cat image illustrating the status code on http.cat")
-    var show = false
+    @Flag(help: "Open the status code on http.cat")
+    var open = false
     
     mutating func run() throws {
         if let statusCode = HTTPStatusCode(rawValue: code) {
-            if show {
+            if open {
                 let url = "https://http.cat/\(statusCode.rawValue)"
                 let task = Process()
                 

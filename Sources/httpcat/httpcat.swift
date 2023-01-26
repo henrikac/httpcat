@@ -10,7 +10,7 @@ struct HttpCat: ParsableCommand {
         subcommands: [Code.self]
     )
     
-    @Flag(help: "Opens http.cat")
+    @Flag(help: "Open http.cat")
     var open = false
     
     mutating func run() throws {
