@@ -3,7 +3,7 @@
 A tool that makes it easy and fun to learn http status codes.
 
 ## Requirements
-- [Swift 5.5+](https://www.swift.org/getting-started/)
+- [Swift 5.7+](https://www.swift.org/getting-started/)
 
 ## Install
 Start by cloning the repository and then navigate into the cloned project.
